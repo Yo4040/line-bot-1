@@ -18,6 +18,9 @@
             } else {
               liff.sendMessages([ //document.getElementById('sendMessagesTextText').value で入力したメッセージを代入
               {
+  "type": "flex",
+  "altText": "this is a flex message",
+  "contents": {
   "type": "bubble",
   "size": "mega",
   "body": {
@@ -124,6 +127,7 @@
       }
     ]
   }
+}
 }
             ]).then(function() {
                 document.getElementById('log').value += 'sendMessagesText completed\n';
