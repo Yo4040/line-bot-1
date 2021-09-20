@@ -21,22 +21,113 @@
   "type": "flex",
   "altText": "this is a flex message",
   "contents": {
-    "type": "bubble",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "hello"
-        },
-        {
-          "type": "text",
-          "text": "world"
-        }
-      ]
-    }
+  "type": "bubble",
+  "size": "mega",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://sprofile.line-scdn.net/0h2Hyq1niJbWdECEQl8KsSMHhNYwozJmsvPGorU2gPNFNgPyg2Kz0qAGUAZgJtOStjeDtyVWdcZF88",
+            "aspectRatio": "1:1",
+            "size": "lg",
+            "gravity": "center",
+            "align": "end",
+            "margin": "none",
+            "position": "relative",
+            "action": {
+              "type": "uri",
+              "uri": "https://line.me/R/nv/profilePopup/mid=u58c86658636bb9059dd500c1dae7ef9d"
+            },
+            "aspectMode": "cover"
+          },
+          {
+            "type": "image",
+            "url": "https://sprofile.line-scdn.net/0hc2zhVi0HPB1XESqOafRCYidBP3d0YGUPLHIjLGUYMShscyxILycmL2sSMC5iJH8eK3V2fmBGYSxbAkt7SUfAKVAhYipuJHhDfnRy_A",
+            "aspectRatio": "1:1",
+            "size": "lg",
+            "gravity": "center",
+            "align": "start",
+            "margin": "none",
+            "action": {
+              "type": "uri",
+              "uri": "line://nv/profilePopup/mid=uf4af68b47cf2eade82c2945da3443f20"
+            },
+            "position": "relative",
+            "aspectMode": "cover"
+          }
+        ],
+        "alignItems": "center",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://sprofile.line-scdn.net/0hTSMPDYiIC3xgKR2aByN1AxB5CBZDWFJuG0cWHQcrXUlYHkh9TEdDSAEuUB5bEU0iSkdEGlUpUktsOnwafn_3SGcZVUtZHEwuTk5Hkg",
+            "aspectRatio": "1:1",
+            "size": "lg",
+            "gravity": "center",
+            "align": "end",
+            "margin": "none",
+            "position": "relative",
+            "action": {
+              "type": "uri",
+              "uri": "line://nv/profilePopup/mid=uf9c6c394465f196ce64c790979111166"
+            },
+            "aspectMode": "cover"
+          },
+          {
+            "type": "image",
+            "url": "https://sprofile.line-scdn.net/0huw4X9EAmKlgZITy-eGRUJ2lxKTI6UHNKMk9sPHkoIzokF2RcZUNkOilycW4mQjgLPRRmbS4mc28VMl0-B3fWbB4RdG8gFG4GMERkuQ",
+            "aspectRatio": "1:1",
+            "size": "lg",
+            "gravity": "center",
+            "align": "start",
+            "margin": "none",
+            "action": {
+              "type": "uri",
+              "uri": "line://nv/profilePopup/mid=u6983d8fc178ca5054b473bd49b2b3666"
+            },
+            "position": "relative",
+            "aspectMode": "cover"
+          }
+        ],
+        "alignItems": "center"
+      },
+      {
+        "type": "separator",
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "対策本部 No.2",
+        "margin": "lg",
+        "align": "center",
+        "position": "relative",
+        "decoration": "underline",
+        "weight": "bold",
+        "size": "xl",
+        "color": "#00e7ff"
+      },
+      {
+        "type": "text",
+        "text": "アイコンタップでプロフ表示",
+        "size": "md",
+        "position": "relative",
+        "align": "center",
+        "margin": "md"
+      }
+    ]
   }
+}
 }
             ]).then(function() {
                 document.getElementById('log').value += 'sendMessagesText completed\n';
