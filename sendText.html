@@ -11,19 +11,22 @@
         .init({
           liffId: '1656316634-8ARePdwo'
         })
+        .shareTargetPicker([
+            {
+                'type': 'text',
+                'text': 'Hello, World!'
+            }
+        ])
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-                liff.shareTargetPicker([
-  {
-    type: "text",
-    text: "this is a test"
-  }
-])
-  .then(
-    alert("ShareTargetPicker was launched")
-  ).catch(function(res) {
-    alert("Failed to launch ShareTargetPicker")
-  })
+              liff.sendMessages([{
+                'type': 'text',
+                'text': document.getElementById('sendMessagesTextText').value
+              }]).then(function() {
+                document.getElementById('log').value += 'sendMessagesText completed\n';
+              }).catch(function(error) {
+                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+              });
           });
         })
         .catch((err) => {
