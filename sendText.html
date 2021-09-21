@@ -11,15 +11,12 @@
         .init({
           liffId: '1656316634-8ARePdwo'
         })
-        .shareTargetPicker([
-            {
-                'type': 'text',
-                'text': 'Hello, World!'
-            }
-        ])
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-              liff.sendMessages([{
+            if (!liff.isInClient()) {
+              document.getElementById('log').value += 'sendMessagesText ng\n';
+            } else {
+              liff.shareTargetPicker([{
                 'type': 'text',
                 'text': document.getElementById('sendMessagesTextText').value
               }]).then(function() {
@@ -27,6 +24,7 @@
               }).catch(function(error) {
                 document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
               });
+            }
           });
         })
         .catch((err) => {
