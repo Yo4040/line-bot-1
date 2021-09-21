@@ -13,9 +13,6 @@
         })
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-            if (!liff.isInClient()) {
-              document.getElementById('log').value += 'sendMessagesText ng\n';
-            } else {
                 liff.shareTargetPicker([
   {
     type: "text",
@@ -27,7 +24,6 @@
   ).catch(function(res) {
     alert("Failed to launch ShareTargetPicker")
   })
-            }
           });
         })
         .catch((err) => {
