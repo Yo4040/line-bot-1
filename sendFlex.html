@@ -15,7 +15,7 @@
           document.getElementById('go').addEventListener('click', () => {
               liff.shareTargetPicker([{
                 "type": "flex",
-                "altText": "this is a flex message",
+                "altText": document.getElementById("sendFlexAltText").value,
                 "contents": {
                   "type": "bubble",
                   "header": {
