@@ -129,10 +129,15 @@
   }
 }
 }
-            ]).closeWindow()
+            ]).then(function() {
+                document.getElementById('log').value += 'sendMessagesText completed\n';
+              }).catch(function(error) {
+                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+              });
             }
           });
         })
+        .closeWindow()
         .catch((err) => {
           document.getElementById('log').value = 'init ng\n' + err;
         });
