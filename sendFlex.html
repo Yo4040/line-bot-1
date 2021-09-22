@@ -6,12 +6,6 @@
     <title>Ybot LIFF sendFlex</title>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script type="text/javascript">
-    if (!liff.isLoggedIn()) {
-      liff.login({ redirectUri: "https://example.com/path" });
-    }
-    if(document.getElementById("sendFlexAltText")==""){
-      document.getElementById("sendFlexAltText") += "FlexMessageが送信されました"
-    }
     document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
