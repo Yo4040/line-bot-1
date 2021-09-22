@@ -129,11 +129,7 @@
   }
 }
 }
-            ]).then(function() {
-                document.getElementById('log').value += 'sendMessagesText completed\n';
-              }).catch(function(error) {
-                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-              });
+            ]).closeWindow()
             }
           });
         })
