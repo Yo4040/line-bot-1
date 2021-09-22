@@ -63,7 +63,7 @@
                 }
               }
               ]).then(function() {
-                document.getElementById('log').value += 'sendMessagesText completed\n';
+                document.getElementById('log').value += 'sendMessagesFlex completed\n';
               }).catch(function(error) {
                 document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
               });
@@ -78,8 +78,9 @@
   <body>
     <div>
       <h3>メッセージを送信する</h3>
-      <div>Title<input type="text" id="sendFlexTitle" placeholder="Title" value=""/></div>
-      <div>Text<input type="text" id="sendFlexText" placeholder="text" value=""/></div>
+      <div>Title<input type="text" id="sendFlexTitle" placeholder="タイトルを入力してください" value=""/></div>
+      <div>Text<input type="text" id="sendFlexText" placeholder="FlexMessageの本文を入力してください" value=""/></div>
+      <div>altText<input type="text" id="sendFlexAltText" placeholder="トーク一覧で表示されるテキストを入力してください" value=""/></div>
       <input type="button" id="go" value="実行"/>
       <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
     </div>
