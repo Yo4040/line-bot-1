@@ -12,6 +12,9 @@
           liffId: '1656316634-8ARePdwo'
         })
         .then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          };
           document.getElementById('go').addEventListener('click', () => {
               liff.shareTargetPicker([{
                 'type': 'text',
