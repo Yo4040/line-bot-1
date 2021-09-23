@@ -10,11 +10,15 @@
     document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
-          liffId: '1656316634-8ARePdwo'
+          liffId: '1656316634-wBNpe6jg'
         })
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-            liff.shareTargetPicker([{
+            if (!liff.isInClient()) {
+              document.getElementById('log').value += 'sendMessagesText ng\n';
+            } else {
+              liff.sendMessages([ //document.getElementById('sendMessagesTextText').value で入力したメッセージを代入
+              {
               "type": "flex",
               "altText": document.getElementById("sendFlexAltText").value,
               "contents": {
@@ -29,11 +33,6 @@
                       "align": "center"
                     }
                   ],
-                  "action": {
-                    "type": "uri",
-                    "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
-                  },
                   "backgroundColor": "#ff9944",
                   "paddingAll": "8px"
                 },
@@ -46,12 +45,7 @@
                       "text": document.getElementById("sendFlexText").value,
                       "wrap": true
                     }
-                  ],
-                  "action": {
-                    "type": "uri",
-                    "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
-                  }
+                  ]
                 },
                 "footer": {
                   "type": "box",
@@ -64,11 +58,6 @@
                       "align": "center"
                     }
                   ],
-                  "action": {
-                    "type": "uri",
-                    "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
-                  },
                   "paddingAll": "6px"
                 },
                 "styles": {
@@ -78,11 +67,12 @@
                 }
               }
             }
-            ]).then(function () {
-              document.getElementById('log').value += 'sendMessagesFlex completed\n';
-            }).catch(function (error) {
-              document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-            });
+              ]).then(function () {
+                document.getElementById('log').value += 'sendMessagesText completed\n';
+              }).catch(function (error) {
+                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+              });
+            }
           });
         })
         .catch((err) => {
@@ -95,11 +85,9 @@
 <body>
   <div>
     <h3>メッセージを送信する</h3>
-    <div>Title<input type="text" id="sendFlexTitle" placeholder="タイトルを入力してください" value="" /></div>
-    <div>Text<input type="text" id="sendFlexText" placeholder="FlexMessageの本文を入力してください" value="" /></div>
-    <div>altText<input type="text" id="sendFlexAltText" placeholder="トーク一覧で表示されるテキストを入力してください" value="" /></div>
+    <div>text<input type="text" id="sendMessagesTextText" placeholder="text" value="" /></div>
     <input type="button" id="go" value="実行" />
-    <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
+    <textarea id="log" style="width:96%;height:100px;"></textarea>
   </div>
 </body>
 
