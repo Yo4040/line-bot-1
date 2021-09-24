@@ -1,7 +1,8 @@
 # line-bot-1
 
-## 機能
-LINEでLIFFアプリを起動し、FlexMessageを送信します。
+## 用途
+LINEでLIFFアプリを起動し、CustomFlexMessageを送信します
+Ybot
 
 ## 動作環境
 LINE app
