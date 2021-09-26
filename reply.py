@@ -1,22 +1,6 @@
-# -*- coding: utf-8 -*-
-
-#  Licensed under the Apache License, Version 2.0 (the "License"); you may
-#  not use this file except in compliance with the License. You may obtain
-#  a copy of the License at
-#
-#       https://www.apache.org/licenses/LICENSE-2.0
-#
-#  Unless required by applicable law or agreed to in writing, software
-#  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#  License for the specific language governing permissions and limitations
-#  under the License.
-
-import os
-import sys
-from argparse import ArgumentParser
 
 from flask import Flask, request, abort
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -26,22 +10,16 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+import os
 
 app = Flask(__name__)
 
-# get channel_secret and channel_access_token from your environment variable
-channel_secret = os.getenv('837b3eda86c3472ccb5c8e4b514dc0fd', None)
-channel_access_token = os.getenv('h2CKZQS7erEDKPX32LwBRsq79gRdR0Dx/z9jysdzLSmJNKp1UN9bBA5bWCi6wIGRI3pTVPmXzuNtd9DvtbAkrUMrR3DkTRv1GZVRU+6frocFEUlaUoAW4g1QO3w3SgYbWO3j8utiPWFanJrL6JteawdB04t89/1O/w1cDnyilFU=', None)
-if channel_secret is None:
-    print('Specify LINE_CHANNEL_SECRET as environment variable.')
-    sys.exit(1)
-if channel_access_token is None:
-    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
-    sys.exit(1)
+#環境変数取得
+YOUR_CHANNEL_ACCESS_TOKEN = os.environ["h2CKZQS7erEDKPX32LwBRsq79gRdR0Dx/z9jysdzLSmJNKp1UN9bBA5bWCi6wIGRI3pTVPmXzuNtd9DvtbAkrUMrR3DkTRv1GZVRU+6frocFEUlaUoAW4g1QO3w3SgYbWO3j8utiPWFanJrL6JteawdB04t89/1O/w1cDnyilFU="]
+YOUR_CHANNEL_SECRET = os.environ["837b3eda86c3472ccb5c8e4b514dc0fd"]
 
-line_bot_api = LineBotApi(channel_access_token)
-handler = WebhookHandler(channel_secret)
-
+line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -61,17 +39,13 @@ def callback():
     return 'OK'
 
 
-
-@handler.add(MessageEvent)
-def message_text(event):
-    TEXT = "Hello!!"
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        #TextSendMessage(text=event.message.text)
-        TextSendMessage(text=TEXT)
-    )
+        TextSendMessage(text=event.message.text))
 
-# ポート番号の設定
+
 if __name__ == "__main__":
 #    app.run()
     port = int(os.getenv("PORT", 5000))
