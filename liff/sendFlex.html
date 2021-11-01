@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sendFlex.css">
   <title>Ybot LIFF sendFlex</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script type="text/javascript">
@@ -12,7 +13,7 @@
         .init({
           liffId: '1656316634-8ARePdwo'
         })
-        .then(() => {
+        .then(() => { 
           document.getElementById('go').addEventListener('click', () => {
             liff.shareTargetPicker([{
               "type": "flex",
@@ -32,7 +33,7 @@
                   "action": {
                     "type": "uri",
                     "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
+                    "uri": document.getElementById("sendFlexUrl").value
                   },
                   "backgroundColor": "#ff9944",
                   "paddingAll": "8px"
@@ -50,7 +51,7 @@
                   "action": {
                     "type": "uri",
                     "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
+                    "uri": document.getElementById("sendFlexUrl").value
                   }
                 },
                 "footer": {
@@ -67,7 +68,7 @@
                   "action": {
                     "type": "uri",
                     "label": "action",
-                    "uri": "https://liff.line.me/1656316634-enQVz6Db"
+                    "uri": document.getElementById("sendFlexUrl").value
                   },
                   "paddingAll": "6px"
                 },
@@ -94,10 +95,11 @@
 
 <body>
   <div>
-    <h3>メッセージを送信する</h3>
-    <div>Title<input type="text" id="sendFlexTitle" placeholder="タイトルを入力してください" value="" /></div>
-    <div>Text<input type="text" id="sendFlexText" placeholder="FlexMessageの本文を入力してください" value="" /></div>
-    <div>altText<input type="text" id="sendFlexAltText" placeholder="トーク一覧で表示されるテキストを入力してください" value="" /></div>
+    <h3 class="Ttl">メッセージを送信する</h3>
+    <div>Title<input type="text"  class="inputValue" id="sendFlexTitle" placeholder="タイトルを入力してください" value="" /></div>
+    <div>Text<input type="text"  class="inputValue" id="sendFlexText" placeholder="FlexMessageの本文を入力してください" value="" /></div>
+    <div>altText<input type="text" class="inputValue" id="sendFlexAltText" placeholder="トーク一覧で表示されるテキストを入力してください" value="" /></div>
+    <div>linkUrl<input type="text" class="inputValue" id="sendFlexUrl" placeholder="Flex Messageタップ時のリンクを入力してください" value="" /></div>
     <input type="button" id="go" value="実行" />
     <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
   </div>
