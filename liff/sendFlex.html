@@ -8,12 +8,6 @@
   <title>Ybot LIFF sendFlex</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script type="text/javascript">
-    let link;
-    if(document.getElementById("sendFlexUrl").value==""){
-      link = "https://liff.line.me/1656316634-8ARePdwo";
-    }else{
-      link = document.getElementById("sendFlexUrl").value
-    }
     document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
@@ -105,7 +99,7 @@
     <div>Title<input type="text"  class="inputValue" id="sendFlexTitle" placeholder="タイトルを入力してください" value="" /></div>
     <div>Text<input type="text"  class="inputValue" id="sendFlexText" placeholder="FlexMessageの本文を入力してください" value="" /></div>
     <div>altText<input type="text" class="inputValue" id="sendFlexAltText" placeholder="トーク一覧で表示されるテキストを入力してください" value="" /></div>
-    <div>linkUrl<input type="text" class="inputValue" id="sendFlexUrl" placeholder="Flex Messageタップ時のリンクを入力してください" value="" /></div>
+    <div>linkUrl<input type="text" class="inputValue" id="sendFlexUrl" placeholder="Flex Messageタップ時のリンクを入力してください" value="https://liff.line.me/1656316634-8ARePdwo" /></div>
     <input type="button" id="go" value="実行" />
     <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
   </div>
