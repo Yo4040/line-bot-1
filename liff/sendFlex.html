@@ -15,7 +15,7 @@
         })
         .then(() => { 
           if (!liff.isLoggedIn()) {
-            liff.login();
+            liff.login({ redirectUri: "https://liff.line.me/1656316634-8ARePdwo" });
           }
           document.getElementById('go').addEventListener('click', () => {
             liff.shareTargetPicker([{
