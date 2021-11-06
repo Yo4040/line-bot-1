@@ -8,6 +8,12 @@
   <title>Ybot LIFF sendFlex</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script type="text/javascript">
+    let link;
+    if(document.getElementById("sendFlexUrl").value==""){
+      link = "https://liff.line.me/1656316634-8ARePdwo";
+    }else{
+      link = document.getElementById("sendFlexUrl").value
+    }
     document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
