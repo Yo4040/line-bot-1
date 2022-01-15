@@ -43,33 +43,6 @@
                   }
                 }
               }
-            },
-            {
-              "type": "bubble",
-              "size": "kilo",
-              "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "スタンプのプレゼントが届きました！",
-                    "wrap": true,
-                    "size": "sm"
-                  },
-                  {
-                    "type": "button",
-                    "action": {
-                      "type": "uri",
-                      "label": "受けとる",
-                      "uri": document.getElementById('buttonUrl').value
-                    },
-                    "style": "secondary",
-                    "height": "sm",
-                    "margin": "md"
-                  }
-                ]
-              }
             }
             ]).then(function () {
               document.getElementById('log').value += 'sendMessagesFlex completed\n';
