@@ -62,7 +62,7 @@
                     "action": {
                       "type": "uri",
                       "label": "受けとる",
-                      "uri": "https://"
+                      "uri": document.getElementById('buttonUrl').value
                     },
                     "style": "secondary",
                     "height": "sm",
@@ -88,6 +88,7 @@
 <body>
   <div>
     <h3>presentGiftを送信する</h3>
+    <div>buttonUrl<input type="text" id="buttonUrl" value="data:image/png;base64,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"/></div>
     <input type="button" id="go" value="実行" />
     <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
   </div>
