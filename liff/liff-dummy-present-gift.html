@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ybot LIFF sendFlex</title>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      liff
+        .init({
+          liffId: '1656316634-8ARePdwo'
+        })
+        .then(() => {
+          document.getElementById('go').addEventListener('click', () => {
+            liff.shareTargetPicker([{
+              "type": "flex",
+              "altText": "[LINE]今すぐ確認しよう！！",
+              "contents": {
+                "type": "bubble",
+                "size": "kilo",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "image",
+                      "url": "https://media.discordapp.net/attachments/710655572852211824/931742075949559879/psg.png",
+                      "position": "relative",
+                      "size": "240px",
+                      "align": "center",
+                      "gravity": "center",
+                      "aspectMode": "fit",
+                      "offsetStart": "20px"
+                    }
+                  ],
+                  "background": {
+                    "type": "linearGradient",
+                    "angle": "320deg",
+                    "startColor": "#44ff00",
+                    "endColor": "#11ffff"
+                  }
+                }
+              }
+            },
+            {
+              "type": "bubble",
+              "size": "kilo",
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "スタンプのプレゼントが届きました！",
+                    "wrap": true,
+                    "size": "sm"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "uri",
+                      "label": "受けとる",
+                      "uri": "https://"
+                    },
+                    "style": "secondary",
+                    "height": "sm",
+                    "margin": "md"
+                  }
+                ]
+              }
+            }
+            ]).then(function () {
+              document.getElementById('log').value += 'sendMessagesFlex completed\n';
+            }).catch(function (error) {
+              document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+            });
+          });
+        })
+        .catch((err) => {
+          document.getElementById('log').value = 'init ng\n' + err;
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <h3>presentGiftを送信する</h3>
+    <input type="button" id="go" value="実行" />
+    <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
+  </div>
+</body>
+
+</html>

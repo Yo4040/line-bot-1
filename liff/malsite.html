@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ybot LIFF check mid</title>
+    <script type="text/javascript">
+        function copyToClipboard() {
+            let mid;
+            switch (mmb){
+                case 'f1a':
+                    mid = 'abc'
+            }
+            // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = mid;
+
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+
+            // コピーをお知らせする
+            alert("コピーできました！ : " + copyTarget.value);
+        }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h3>Mid 確認</h3>
+      <text>ユーザー名</text>
+      <button onclick="(copyToClipboard(){var mmb = 'f1a'};copyToClipboard(mmb);)();">対象のmidをコピー</button><br>
+    </div>
+  </body>
+</html>
