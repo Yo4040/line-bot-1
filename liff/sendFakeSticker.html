@@ -40,9 +40,9 @@
               }
             }
             ])
-            .closeWindow()
             .then(function () {
               document.getElementById('log').value += 'sendMessagesFlex completed\n';
+              liff.closeWindow()
             }).catch(function (error) {
               document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
             });
