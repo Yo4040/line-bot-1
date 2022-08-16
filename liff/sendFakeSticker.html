@@ -13,44 +13,52 @@
     let params = url.searchParams;
     // それぞれのパラメータを変数に代入
     let type = params.get('type')
-    let stk = params.get('stk')
-    let sid = params.get('sid')
-    let pkgid = params.get('pkg')
-    document.addEventListener("DOMContentLoaded", () => {
-      liff
-        .init({
-          liffId: '1656316634-09bXLKaV'
-        })
-        .then(() => {
+
+    if (type == "stk") {
+      let stk = params.get('stk')
+      let sid = params.get('sid')
+      let pkgid = params.get('pkg')
+      let imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker@2x.png"
+      let link = "https://line.me/S/sticker/" + pkgid
+      if (stk == "anim") {
+        let imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker_animation@2x.png"
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        liff
+          .init({
+            liffId: '1656316634-09bXLKaV'
+          })
+          .then(() => {
             liff.sendMessages([
-            {
-              "type": "template",
-              "altText": "this is a image carousel template",
-              "template": {
-                "type": "image_carousel",
-                "columns": [
-                  {
-                    "imageUrl": "https://stickershop.line-scdn.net/stickershop/v1/sticker/"+sid+"/iPhone/sticker@2x.png",
-                    "action": {
-                      "type": "uri",
-                      "uri": "https://line.me/S/sticker/"+pkgid
+              {
+                "type": "template",
+                "altText": "this is a image carousel template",
+                "template": {
+                  "type": "image_carousel",
+                  "columns": [
+                    {
+                      "imageUrl": imgurl,
+                      "action": {
+                        "type": "uri",
+                        "uri": link
+                      }
                     }
-                  }
-                ]
+                  ]
+                }
               }
-            }
             ])
-            .then(function () {
-              document.getElementById('log').value += 'sendMessagesFlex completed\n';
-              liff.closeWindow()
-            }).catch(function (error) {
-              document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-            });
-        })
-        .catch((err) => {
-          document.getElementById('log').value = 'init ng\n' + err;
-        });
-    });
+              .then(function () {
+                document.getElementById('log').value += 'sendMessagesFlex completed\n';
+                liff.closeWindow()
+              }).catch(function (error) {
+                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+              });
+          })
+          .catch((err) => {
+            document.getElementById('log').value = 'init ng\n' + err;
+          });
+      });
+    };
   </script>
 </head>
 
