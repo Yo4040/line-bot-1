@@ -39,7 +39,9 @@
                 ]
               }
             }
-            ]).then(function () {
+            ])
+            .closeWindow()
+            .then(function () {
               document.getElementById('log').value += 'sendMessagesFlex completed\n';
             }).catch(function (error) {
               document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
