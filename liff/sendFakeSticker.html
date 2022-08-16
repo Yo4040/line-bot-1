@@ -22,7 +22,7 @@
           liffId: '1656316634-09bXLKaV'
         })
         .then(() => {
-          document.getElementById('go').addEventListener('click', () => {
+          window.onload = function() {
             liff.sendMessages([
             {
               "type": "template",
@@ -45,7 +45,7 @@
             }).catch(function (error) {
               document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
             });
-          });
+          };
         })
         .catch((err) => {
           document.getElementById('log').value = 'init ng\n' + err;
