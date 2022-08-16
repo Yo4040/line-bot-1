@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ybot LIFF sendFlex</title>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="text/javascript">
+    // URLを取得
+    let url = new URL(window.location.href);
+    // URLSearchParamsオブジェクトを取得
+    let params = url.searchParams;
+    // それぞれのパラメータを変数に代入
+    let type = params.get('type')
+    let stk = params.get('stk')
+    let sid = params.get('sid')
+    let pkgid = params.get('pkg')
+    document.addEventListener("DOMContentLoaded", () => {
+      liff
+        .init({
+          liffId: '1656316634-09bXLKaV'
+        })
+        .then(() => {
+            liff.sendMessages([
+            {
+              "type": "template",
+              "altText": "this is a image carousel template",
+              "template": {
+                "type": "image_carousel",
+                "columns": [
+                  {
+                    "imageUrl": "https://stickershop.line-scdn.net/stickershop/v1/sticker/"+sid+"/iPhone/sticker@2x.png",
+                    "action": {
+                      "type": "uri",
+                      "uri": "https://line.me/S/sticker/"+pkgid
+                    }
+                  }
+                ]
+              }
+            }
+            ])
+            .then(function () {
+              document.getElementById('log').value += 'sendMessagesFlex completed\n';
+              liff.closeWindow()
+            }).catch(function (error) {
+              document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+            });
+        })
+        .catch((err) => {
+          document.getElementById('log').value = 'init ng\n' + err;
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <h3>sendMessage</h3>
+    <input type="button" id="go" value="実行" />
+    <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
+  </div>
+</body>
+
+</html>
