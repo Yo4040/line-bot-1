@@ -22,8 +22,8 @@
           liffId: '1656316634-09bXLKaV'
         })
         .then(() => {
-          window.onload = function() {
-            liff.shareTargetPicker([
+          document.getElementById('go').addEventListener('click', () => {
+            liff.sendMessages([
             {
               "type": "template",
               "altText": "this is a image carousel template",
@@ -45,7 +45,7 @@
             }).catch(function (error) {
               document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
             });
-          };
+          });
         })
         .catch((err) => {
           document.getElementById('log').value = 'init ng\n' + err;
@@ -57,6 +57,7 @@
 <body>
   <div>
     <h3>sendMessage</h3>
+    <input type="button" id="go" value="実行" />
     <textarea id="log" placeholder="Log" style="width:96%;height:100px;"></textarea>
   </div>
 </body>
