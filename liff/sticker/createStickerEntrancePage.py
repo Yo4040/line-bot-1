@@ -1,7 +1,7 @@
-stk = "noanim"  # stickerType (anim or noanim)
-sid = 26304040  # [int] number of first stickerId
-pkgid = 10166   # [int] number of packageId
-stickerCount = 40   # [int] number of stickers
+stk = "noanim"    # [str] stickerType (anim or noanim)
+sid = 249937366    # [int] number of first stickerId
+pkgid = 9606233    # [int] number of packageId
+stickerCount = 40    # [int] number of stickers
 pc = int(stickerCount/4)
 pkg = str(pkgid)
 f = open(f'entrance{pkg}.html', "w")
@@ -12,7 +12,7 @@ txt1 = '''<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スタンプ選択</title>
+    <title>東京卍リベンジャーズ</title>
 </head>
 <body>
     <table>
