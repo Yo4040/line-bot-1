@@ -52,7 +52,7 @@
                 liff.closeWindow()
               }).catch(function (error) {
                 document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-                alert("トークルームが開かれていません。送信先ルームを開いて実行してね。\nエラー内容:\n"+error)
+                alert("トークルームが開かれていません。\n送信先ルームを開いて実行してね。\n\n"+error)
                 liff.closeWindow()
               });
           })
