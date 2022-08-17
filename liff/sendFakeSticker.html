@@ -52,12 +52,14 @@
                 liff.closeWindow()
               }).catch(function (error) {
                 document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-                alert("トークルームが開かれていない可能性があります。\nBig Stickerを送信したいトークルームを開いて実行してください")
+                alert("トークルームが開かれていません。送信先ルームを開いて実行してね。\nエラー内容:\n"+error)
+                liff.closeWindow()
               });
           })
           .catch((err) => {
             document.getElementById('log').value = 'init ng\n' + err;
-            alert("init ng")
+            alert("initialization failed")
+            liff.closeWindow()
           });
       });
     };
