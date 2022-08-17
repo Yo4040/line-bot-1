@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ybot LIFF sendFlex</title>
+  <title>Send BigSticker</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script type="text/javascript">
     // URLを取得
@@ -52,10 +52,12 @@
                 liff.closeWindow()
               }).catch(function (error) {
                 document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+                alert("トークルームが開かれていない可能性があります。\nBig Stickerを送信したいトークルームを開いて実行してください")
               });
           })
           .catch((err) => {
             document.getElementById('log').value = 'init ng\n' + err;
+            alert("init ng")
           });
       });
     };
