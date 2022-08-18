@@ -1,6 +1,6 @@
 stk = "noanim"    # [str] stickerType (anim or noanim)
-sid = 249937366    # [int] number of first stickerId
-pkgid = 9606233    # [int] number of packageId
+sid = 452317190    # [int] number of first stickerId
+pkgid = 17494982    # [int] number of packageId
 stickerCount = 40    # [int] number of stickers
 pc = int(stickerCount/4)
 pkg = str(pkgid)
@@ -12,7 +12,7 @@ txt1 = '''<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京卍リベンジャーズ</title>
+    <title>TVアニメ「探偵はもう、死んでいる。」</title>
 </head>
 <body>
     <table>
@@ -32,9 +32,10 @@ for i in range(pc):
         f.writelines(p2)
     if stk == "anim":
         q1 = '        <tr class="stk-img">\n'
+        q2 = ''
         for j in range(4):
             num = str(sid + j+4*i)
-            link = f'            <td><a href="line://app/1656316634-09bXLKaV?type=stk&stk=noanim&sid={num}&pkg={pkg}"><img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/{num}/iPhone/sticker_animation@2x.png"></a></td>\n'
+            link = f'            <td><a href="line://app/1656316634-09bXLKaV?type=stk&stk=anim&sid={num}&pkg={pkg}"><img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/{num}/iPhone/sticker_animation@2x.png"></a></td>\n'
             q2 = q2+link
         q3 = '        </tr>\n'
         p2 = [q1, q2, q3]
