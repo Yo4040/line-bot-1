@@ -13,22 +13,21 @@
     let params = url.searchParams;
     // それぞれのパラメータを変数に代入
     let type = params.get('type')
-
-    if (type == "stk") {
-      let stk = params.get('stk')
-      let sid = params.get('sid')
-      let pkgid = params.get('pkg')
-      let imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker@2x.png"
-      let link = "https://line.me/S/sticker/" + pkgid
-      if (stk == "anim") {
-        imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker_animation@2x.png"
-      }
-      document.addEventListener("DOMContentLoaded", () => {
-        liff
-          .init({
-            liffId: '1656316634-09bXLKaV'
-          })
-          .then(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+      liff
+        .init({
+          liffId: '1656316634-09bXLKaV'
+        })
+        .then(() => {
+          if (type == "stk") {
+            let stk = params.get('stk')
+            let sid = params.get('sid')
+            let pkgid = params.get('pkg')
+            let imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker@2x.png"
+            let link = "https://line.me/S/sticker/" + pkgid
+            if (stk == "anim") {
+              imgurl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + sid + "/iPhone/sticker_animation@2x.png"
+            }
             liff.sendMessages([
               {
                 "type": "template",
@@ -55,14 +54,14 @@
                 alert("トークルームが開かれていません。\n送信先ルームを開いて実行してね。\n\n"+error)
                 liff.closeWindow()
               });
-          })
-          .catch((err) => {
-            document.getElementById('log').value = 'init ng\n' + err;
-            alert("initialization failed")
-            liff.closeWindow()
-          });
-      });
-    };
+          }
+        })
+        .catch((err) => {
+          document.getElementById('log').value = 'init ng\n' + err;
+          alert("initialization failed")
+          liff.closeWindow()
+        });
+    });
   </script>
 </head>
 
