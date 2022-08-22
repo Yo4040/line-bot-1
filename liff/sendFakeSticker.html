@@ -19,6 +19,8 @@
           liffId: '1656316634-09bXLKaV'
         })
         .then(() => {
+          console.log(liff.getContext());
+          alert(liff.getContext());
           if (type == "stk") {
             let stk = params.get('stk')
             let sid = params.get('sid')
